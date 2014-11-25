@@ -1,0 +1,36 @@
+<?php
+/**
+* @file
+*myblock module
+* Create a new block through code/program for test 
+*/
+
+/**
+*  implements  hook_block_info().
+*/
+function myblock_block_info() {
+    $blocks['myblock'] = array(
+    'info' => t('My Custom  Block'),
+    
+  );
+
+  return $blocks;
+}
+/**
+* implements hook_block_view().
+*/
+function myblock_block_view($delta = '') {
+
+  $block = array();
+  switch ($delta) {
+    case 'myblock':
+      $block['subject'] = t('My custom block');
+      $block['content'] = '<strong>Welcome</strong> to custom block';
+      break;
+      
+
+   
+  }
+  return $block;
+}
+

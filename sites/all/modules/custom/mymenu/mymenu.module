@@ -1,0 +1,39 @@
+<?php
+/**
+* @file
+* mymenu module 
+*/
+
+/**
+* Implements hook_permission().
+*/
+function mymenu_permission() {
+  return array(
+    'access mypage' => array(
+      'title' => t('Access My Page'),
+      'description' => t('Access My Page On my site.'),
+    ),
+  );
+}
+/**
+* Implements hook_menu().
+*/
+  function mymenu_menu() {
+    $items['mypage'] = array(
+      'title' => 'My Menu Page',
+      'type' => MENU_NORMAL_ITEM,
+      'page callback' => 'mymenu_mypage',
+      'access arguments' => array('access mypage'),
+      
+    );
+    return $items;
+    
+  }
+  
+/**
+*  My callback funnction.
+*/
+  function mymenu_mypage(){
+  return "THIS IS MY MENU";
+  }
+  
